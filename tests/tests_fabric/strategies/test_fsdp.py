@@ -371,7 +371,7 @@ def test_apply_optimizer_in_backward(checkpoint):
         model = fabric.setup_module(model)
         optimizers = [fabric.setup_optimizers(optimizer) for optimizer in optimizers]
         return model, optimizers
-    
+
     @contextlib.contextmanager
     def fail_if_any_rank_fails():
         success = False

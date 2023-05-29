@@ -98,7 +98,7 @@ def _apply_optimizers_during_fsdp_backward(
                     unfinished[p] = None
                     remaining[p] = (optimizer, unfinished)
 
-    def maybe_step(parameters: Iterable[torch.nn.Parameter], post_step: Callable[[], None]=lambda: None) -> None:
+    def maybe_step(parameters: Iterable[torch.nn.Parameter], post_step: Callable[[], None] = lambda: None) -> None:
         for p in tuple(parameters):
             optimizer, unfinished = remaining.pop(p)
             unfinished.pop(p)
