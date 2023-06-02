@@ -23,7 +23,8 @@ from torch import Tensor
 
 from lightning_lite.utilities.types import _DEVICE
 
-_BLOCKING_DEVICE_TYPES = ("cpu", "mps")
+# this patches XPU to not add non_blocking kwarg
+_BLOCKING_DEVICE_TYPES = ("cpu", "mps", "xpu")
 
 
 def _from_numpy(value: np.ndarray, device: _DEVICE) -> Tensor:
